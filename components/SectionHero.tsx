@@ -176,7 +176,7 @@ const SectionHero: React.FC<Props> = () => {
       <button
         onClick={openCourseSignIn}
         className={
-          "flex justify-self-center md:block md:hidden   mt-[57px] pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px]" +
+          "flex mx-auto md:block md:hidden   mt-[57px] pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px]" +
           " lg:text-[32px]"
         }
       >
