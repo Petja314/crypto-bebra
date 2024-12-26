@@ -1,14 +1,22 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Arrow from "../public/assets/icons/Arrow.svg";
 import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 interface Props {
   className?: string;
 }
 
 const WidgetContact: React.FC<Props> = () => {
+  const [telegramNick, setTelegramNick] = useState("");
+  const courseHandler = (value: any) => {
+    setTelegramNick(value);
+  };
+  const notify = () => toast("✅ Вы успешно отправили запрос!");
+
   return (
     <div className="px-[26px] md:px-[22px]">
+      <Toaster />
       <section
         className={
           "max-w-[1360px] mx-auto mt-[90px] lg:mt-[160px] px-[28px] lg:px-[60px] bg-[#EAE6E8] rounded-[15px] lg:rounded-[30px] "
@@ -33,6 +41,7 @@ const WidgetContact: React.FC<Props> = () => {
           <div className="mt-[20px] lg:mt-0 flex items-center bg-[#F4F4F4] rounded-[20px] shadow-md">
             {/* Поле ввода */}
             <input
+              onChange={(e: any) => courseHandler(e.currentTarget.value)}
               type="text"
               placeholder="@telegram"
               className="flex-1 bg-transparent focus:outline-none rounded-[10px] md:rounded-[20px] lg:rounded-[20px]
@@ -41,9 +50,15 @@ const WidgetContact: React.FC<Props> = () => {
             />
             {/* Кнопка */}
             <button
-              className="flex items-center justify-center bg-[#F9BFD4] hover:bg-[#FC3193] transition duration-300 shadow-md
+              onClick={notify}
+              className={`flex items-center justify-center bg-[#F9BFD4]  shadow-md
             rounded-[10px] md:rounded-[20px] lg:rounded-[20px]
-            h-[50px] sm:h-[60px] lg:h-[90px] w-[50px] sm:w-[60px] lg:w-[90px]"
+            h-[50px] sm:h-[60px] lg:h-[90px] w-[50px] sm:w-[60px] lg:w-[90px]
+               ${
+                 !telegramNick
+                   ? "bg-[#FFC7DF] cursor-not-allowed" // Disabled state styles
+                   : "bg-[#FC3193]" // Enabled state styles
+               }`}
             >
               <Image
                 src={Arrow}

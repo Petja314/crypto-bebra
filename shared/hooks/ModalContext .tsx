@@ -2,29 +2,38 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface ModalContextType {
-  isVisible: boolean;
-  openModal: () => void;
-  closeModal: () => void;
+  isCourseSignInVisible: boolean;
+  isCourseConfirmationVisible: boolean;
+  openCourseSignIn: () => void;
+  closeCourseSignIn: () => void;
+  openCourseConfirmation: () => void;
+  closeCourseConfirmation: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isCourseSignInVisible, setIsCourseSignInVisible] = useState(false);
+  const [isCourseConfirmationVisible, setIsCourseConfirmationVisible] =
+    useState(false);
 
-  const openModal = () => {
-    console.log("Opening modal");
-    setIsVisible(true);
-  };
-  const closeModal = () => {
-    console.log("Closing modal");
-    setIsVisible(false);
-  };
+  const openCourseSignIn = () => setIsCourseSignInVisible(true);
+  const closeCourseSignIn = () => setIsCourseSignInVisible(false);
 
-  console.log("ModalProvider isVisible:", isVisible);
+  const openCourseConfirmation = () => setIsCourseConfirmationVisible(true);
+  const closeCourseConfirmation = () => setIsCourseConfirmationVisible(false);
 
   return (
-    <ModalContext.Provider value={{ isVisible, openModal, closeModal }}>
+    <ModalContext.Provider
+      value={{
+        isCourseSignInVisible,
+        isCourseConfirmationVisible,
+        openCourseSignIn,
+        closeCourseSignIn,
+        openCourseConfirmation,
+        closeCourseConfirmation,
+      }}
+    >
       {children}
     </ModalContext.Provider>
   );

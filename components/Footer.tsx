@@ -5,10 +5,10 @@ import { useModal } from "@/shared/hooks/ModalContext ";
 interface Props {
   className?: string;
 }
-const link = ["О нас", "Программа", "Лекторы", "FAQ"];
+const link = ["О Нас", "Программа", "Лекторы", "FAQ"];
 
 const Footer: React.FC<Props> = () => {
-  const { openModal } = useModal();
+  const { openCourseSignIn } = useModal();
 
   const sectionScrollHandler = (sectionId: any) => {
     // console.log("sectionId", sectionId);
@@ -51,7 +51,7 @@ const Footer: React.FC<Props> = () => {
 
           <div className={"mt-[10px] md:mt-[30px]"}>
             <button
-              onClick={openModal}
+              onClick={openCourseSignIn}
               className={
                 "pink-btn text-[#FFFFFF] font-bold text-[16px]  leading-[20px] md:text-[32px] md:leading-[39px]  " +
                 "px-[15px] py-[10px] sm:py-[28px] md:px-[55px] md:py-[20px]" +

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const SectionHero: React.FC<Props> = () => {
-  const { openModal } = useModal();
+  const { openCourseSignIn } = useModal();
   return (
     <section
       className={
@@ -84,7 +84,7 @@ const SectionHero: React.FC<Props> = () => {
           </div>
 
           <button
-            onClick={openModal}
+            onClick={openCourseSignIn}
             className={
               "hidden md:block pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px] lg:text-[32px]"
             }
@@ -174,7 +174,7 @@ const SectionHero: React.FC<Props> = () => {
       {/*mobile version*/}
 
       <button
-        onClick={openModal}
+        onClick={openCourseSignIn}
         className={
           "flex justify-self-center md:block md:hidden   mt-[57px] pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px]" +
           " lg:text-[32px]"

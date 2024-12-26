@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useModal } from "@/shared/hooks/ModalContext ";
 
 interface Props {
   className?: string;
@@ -7,6 +8,7 @@ interface Props {
 
 const headerMenu = ["О Нас", "Программа", "Лекторы", "FAQ"];
 const Header: React.FC<Props> = () => {
+  const { openCourseSignIn } = useModal();
   const [burgerMenu, setBurgerMenu] = useState(false);
 
   useEffect(() => {
@@ -92,6 +94,7 @@ const Header: React.FC<Props> = () => {
               </li>
             ))}
             <button
+              onClick={openCourseSignIn}
               className={
                 "mt-[131px] font-bold text-white border border-[#FC3193] rounded-[7px] py-[9.3px] pl-[38px] pr-[38px] bg-[#FC3193] bold-f"
               }

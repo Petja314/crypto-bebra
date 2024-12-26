@@ -10,12 +10,15 @@ import WidgetContact from "@/components/WidgetContact";
 import Footer from "@/components/Footer";
 import CourseSignIn from "@/components/CourseSignIn";
 import { ModalProvider } from "@/shared/hooks/ModalContext ";
+import CourseConfirmation from "@/components/CourseConfirmation";
 
 export default function Home() {
   return (
     <ModalProvider>
       <div className={"bg-[#FEFAFC]"}>
-        <section className={"bg-[#060606]  rounded-b-[30px]"}>
+        <section
+          className={"bg-[#060606]  rounded-b-[15px] md:rounded-b-[30px]"}
+        >
           <Header />
           <SectionHero />
         </section>
@@ -28,6 +31,7 @@ export default function Home() {
         <WidgetContact />
         <Footer />
         <CourseSignIn />
+        <CourseConfirmation />
       </div>
     </ModalProvider>
   );
