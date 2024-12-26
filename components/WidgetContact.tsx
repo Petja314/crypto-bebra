@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Arrow from "../public/assets/icons/Arrow.svg";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import { handleSubmit } from "@/shared/api/telegramApiCall";
+
 interface Props {
   className?: string;
 }
@@ -12,7 +14,18 @@ const WidgetContact: React.FC<Props> = () => {
   const courseHandler = (value: any) => {
     setTelegramNick(value);
   };
-  const notify = () => toast("✅ Вы успешно отправили запрос!");
+
+  const sendMessage = async () => {
+    if (telegramNick.length > 0) {
+      const result = await handleSubmit(telegramNick);
+      if (result.success) {
+        toast("✅ Наш менеджер свяжется с вами в скором времени!");
+        setTelegramNick(""); // Очищаем поле только при успешной отправке
+      } else {
+        toast.error(`❌ Ошибка: ${result.error}`); // Отображаем сообщение об ошибке
+      }
+    }
+  };
 
   return (
     <div className="px-[26px] md:px-[22px]">
@@ -41,16 +54,17 @@ const WidgetContact: React.FC<Props> = () => {
           <div className="mt-[20px] lg:mt-0 flex items-center bg-[#F4F4F4] rounded-[20px] shadow-md">
             {/* Поле ввода */}
             <input
+              value={telegramNick}
               onChange={(e: any) => courseHandler(e.currentTarget.value)}
               type="text"
               placeholder="@telegram"
               className="flex-1 bg-transparent focus:outline-none rounded-[10px] md:rounded-[20px] lg:rounded-[20px]
               text-[#18181847] text-[17px] sm:text-[22px] md:text-[32px] leading-[21px] sm:leading-[28px] md:leading-[38px]
-              h-[50px] sm:h-[60px] lg:h-[90px] pl-[15px] lg:pl-[52px]"
+              h-[50px] sm:h-[60px] lg:h-[90px] pl-[15px] lg:pl-[52px] text-black"
             />
             {/* Кнопка */}
             <button
-              onClick={notify}
+              onClick={sendMessage}
               className={`flex items-center justify-center bg-[#F9BFD4]  shadow-md
             rounded-[10px] md:rounded-[20px] lg:rounded-[20px]
             h-[50px] sm:h-[60px] lg:h-[90px] w-[50px] sm:w-[60px] lg:w-[90px]

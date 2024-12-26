@@ -86,7 +86,7 @@ const SolidityUniversity: React.FC<Props> = () => {
               <div
                 key={i}
                 className={
-                  "shadow-[10px_10px_40px_0px_#80133E2E]   overflow-hidden rounded-[20px] w-full  bg-[#FFFFFF] flex flex-col  items-center  px-[30px] lg:px-[30px] pb-[40px]" +
+                  "shadow-[10px_10px_40px_0px_#80133E2E]   overflow-hidden rounded-[20px] w-full  bg-[#FFFFFF] flex flex-col    px-[30px] lg:px-[30px] pb-[40px]" +
                   " xxl:h-full h-full overflow-hidden "
                 }
               >

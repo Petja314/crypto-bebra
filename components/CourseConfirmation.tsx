@@ -4,6 +4,7 @@ import { useModal } from "@/shared/hooks/ModalContext ";
 import Image from "next/image";
 import Close from "@/public/assets/icons/Close.svg";
 import Tether from "@/public/assets/icons/Tether.svg";
+import { useRouter } from "next/navigation";
 
 interface Props {
   className?: string;
@@ -17,8 +18,13 @@ const paymentOptions = [
 ];
 const CourseConfirmation: React.FC<Props> = () => {
   const { isCourseConfirmationVisible, closeCourseConfirmation } = useModal();
+  const router = useRouter();
 
   if (!isCourseConfirmationVisible) return null;
+
+  const paymentHandler = () => {
+    router.push("/payment-page");
+  };
 
   return (
     <>
@@ -67,6 +73,7 @@ const CourseConfirmation: React.FC<Props> = () => {
               </p>
 
               <button
+                onClick={paymentHandler}
                 className="
     mx-auto bold-f text-white pink-btn py-[15px] px-[10px]
     md:py-[20px] md:px-[33px] text-[15px] leading-[18px]

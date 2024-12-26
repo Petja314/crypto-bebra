@@ -79,3 +79,62 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
+@layer components {
+  .module-container {
+    position: sticky;
+    top: 0;
+    /*z-index: 1; !* Обеспечиваем порядок наложения *!*/
+  }
+  .module-container:nth-child(1) {
+    z-index: 1;
+  }
+  .module-container:nth-child(2) {
+    z-index: 2;
+  }
+  .module-container:nth-child(3) {
+    z-index: 3;
+  }
+  .module-container:nth-child(4) {
+    z-index: 4;
+  }
+  .module-container:nth-child(5) {
+    z-index: 5;
+  }
+  .module-container:nth-child(6) {
+    z-index: 6;
+  }
+  .module-container:nth-child(7) {
+    z-index: 7;
+  }
+  .module-container:nth-child(8) {
+    z-index: 8;
+  }
+
+}
+
+
+
+@layer components {
+  .cards_wrap__card {
+    position: sticky;
+    top: 0;
+    margin-bottom: -70px; /* Adjust this value to control the overlap amount */
+    height: 90vh; /* Ensure each card has a significant height */
+  }
+  .cards_wrap__card:nth-child(1) {
+    z-index: 1; /* Adjust the z-index to ensure stacking order */
+  }
+  .cards_wrap__card:nth-child(2) {
+    z-index: 2;
+  }
+  .cards_wrap__card:nth-child(3) {
+    z-index: 3;
+  }
+  .cards_wrap__card:nth-child(4) {
+    z-index: 4;
+  }
+  .cards_wrap__card:nth-child(5) {
+    z-index: 5;
+  }
+}

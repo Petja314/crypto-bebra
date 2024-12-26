@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const accordionData = [
   {
@@ -40,12 +40,128 @@ const accordionData = [
       },
     ],
   },
+  {
+    element: "3",
+    module: "Модуль 3",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
+  {
+    element: "4",
+    module: "Модуль 4",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
+  {
+    element: "5",
+    module: "Модуль 5",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
+  {
+    element: "6",
+    module: "Модуль 6",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
+  {
+    element: "7",
+    module: "Модуль 7",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
+  {
+    element: "8",
+    module: "Модуль 8",
+    title: "Бебра Малого Таза",
+    accordionItems: [
+      {
+        title: "Введение в Solidity 1",
+        description: "Описание первого введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 2",
+        description: "Описание второго введения в Solidity...",
+      },
+      {
+        title: "Введение в Solidity 3",
+        description: "Описание третьего введения в Solidity...",
+      },
+    ],
+  },
 ];
 
 const Accordion = () => {
   const [activeElements, setActiveElements] = useState<{
     [key: string]: string;
   }>({});
+
+  const contentRefs: any = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleClick = (moduleIndex: string, value: string) => {
     setActiveElements((prevState) => ({
@@ -55,111 +171,102 @@ const Accordion = () => {
   };
 
   return (
-    <section
-      className={
-        "max-w-[1360px] mx-auto mt-[90px] lg:mt-[160px] px-[28px] lg:px-[60px] bg-[#FFFFFF] rounded-[20px] pb-[30px]  lg:pb-[100px]"
-      }
-    >
-      <h1
-        className={
-          "bold-f text-[32px] lg:text-[54px] leading-[43px] lg:leading-[64px] text-black  py-[30px] lg:py-[80px] flex justify-center px-[15px] text-center"
-        }
-      >
+    <section className="max-w-[1360px] mx-auto mt-[90px] lg:mt-[160px] px-[28px] lg:px-[60px] bg-[#FFFFFF] rounded-[20px] pb-[30px] lg:pb-[100px]">
+      <h1 className="bold-f text-[32px] lg:text-[54px] leading-[43px] lg:leading-[64px] text-black py-[30px] lg:py-[80px] flex justify-center px-[15px] text-center">
         Программа Курса
       </h1>
 
       <div>
-        {accordionData.map((module, moduleIndex) => (
-          <div key={moduleIndex} className="bg-white">
+        {accordionData.map((module: any, moduleIndex: any) => (
+          <div key={moduleIndex} className="module-container bg-white">
             <div
-              className={
-                "bg-[#FAECF2]  rounded-[8px] md:rounded-[20px] flex justify-between mt-[32px] md:mt-[100px]"
-              }
+              className={`module-header bg-[#FAECF2] rounded-[8px] md:rounded-[20px] flex justify-between mt-[32px] md:mt-[100px] sticky top-0 z-${
+                accordionData.length - moduleIndex
+              }`}
             >
               <h2 className="medium text-[24px] leading-[28px] text-[#0E0E0E] md:text-[48px] md:leading-[57px] py-[11.5px] md:py-[24px] pl-[10px] md:pl-[40px]">
                 {module.module}
               </h2>
-              <h2
-                className={
-                  "text-[16px] leading-[20px] text-[#0E0E0E] md:text-[48px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[12px] md:pr-[33px]"
-                }
-              >
+              <h2 className="text-[16px] leading-[20px] text-[#0E0E0E] md:text-[48px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[12px] md:pr-[33px]">
                 {module.title}
               </h2>
             </div>
 
-            {module.accordionItems.map((item, itemIndex) => (
-              <div
-                key={itemIndex}
-                className="border-t border-neutral-200 dark:border-neutral-600"
-              >
-                <h3 className="mb-0" id={`heading-${moduleIndex}-${itemIndex}`}>
-                  <button
-                    className={`${
-                      activeElements[moduleIndex] === item.title
-                        ? "text-primary"
-                        : ""
-                    } group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white`}
-                    type="button"
-                    onClick={() =>
-                      handleClick(moduleIndex.toString(), item.title)
-                    }
-                    aria-expanded={
-                      activeElements[moduleIndex] === item.title
-                        ? "true"
-                        : "false"
-                    }
-                    aria-controls={`collapse-${moduleIndex}-${itemIndex}`}
+            <div className="accordion-content">
+              {module.accordionItems.map((item: any, itemIndex: any) => (
+                <div
+                  key={itemIndex}
+                  className="border-b border-neutral-200 dark:border-neutral-600"
+                >
+                  <h3
+                    className="mb-0"
+                    id={`heading-${moduleIndex}-${itemIndex}`}
                   >
-                    <span
-                      className={
-                        "medium text-[16px] leading-[19px] text-[#0E0E0E] md:text-[30px] md:leading-[43px]"
-                      }
-                    >
-                      {item.title}
-                    </span>
-                    <span
+                    <button
                       className={`${
                         activeElements[moduleIndex] === item.title
-                          ? "rotate-[-180deg] -mr-1"
-                          : "rotate-0"
-                      } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-200 ease-in-out`}
+                          ? "text-primary"
+                          : ""
+                      } group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white`}
+                      type="button"
+                      onClick={() =>
+                        handleClick(moduleIndex.toString(), item.title)
+                      }
+                      aria-expanded={
+                        activeElements[moduleIndex] === item.title
+                          ? "true"
+                          : "false"
+                      }
+                      aria-controls={`collapse-${moduleIndex}-${itemIndex}`}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="h-6 w-6"
+                      <span className="medium text-[16px] leading-[19px] text-[#0E0E0E] md:text-[30px] md:leading-[43px]">
+                        {item.title}
+                      </span>
+                      <span
+                        className={`${
+                          activeElements[moduleIndex] === item.title
+                            ? "rotate-[-180deg] -mr-1"
+                            : "rotate-0"
+                        } ml-auto h-5 w-5 shrink-0 fill-[#336dec] transition-transform duration-500 ease-in-out`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </h3>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="h-6 w-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </h3>
 
-                <div
-                  className={`${
-                    activeElements[moduleIndex] === item.title
-                      ? "block px-5 py-4"
-                      : "hidden"
-                  }`}
-                >
-                  <p
-                    className={
-                      "text-[#6A6A6A] text-[14px] leading-[16px] md:text-[23px] md:leading-[32px]"
+                  <div
+                    id={`accordion-${moduleIndex}`}
+                    ref={(el: any) =>
+                      (contentRefs.current[`${moduleIndex}-${itemIndex}`] = el)
                     }
+                    className={`overflow-hidden transition-all duration-300 ease-in-out`}
+                    style={{
+                      maxHeight:
+                        activeElements[moduleIndex] === item.title
+                          ? `${contentRefs.current[`${moduleIndex}-${itemIndex}`]?.scrollHeight}px`
+                          : "0",
+                    }}
                   >
-                    {item.description}
-                  </p>
+                    <p className="text-[#6A6A6A] text-[14px] leading-[16px] md:text-[23px] md:leading-[32px] px-5 py-2">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         ))}
       </div>

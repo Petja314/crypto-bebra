@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface Props {
   className?: string;
@@ -26,6 +26,7 @@ const accordion = [
 
 const Faq: React.FC<Props> = () => {
   const [activeElement, setActiveElement] = useState("");
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleClick = (value: string) => {
     if (value === activeElement) {
@@ -36,17 +37,9 @@ const Faq: React.FC<Props> = () => {
   };
 
   return (
-    <div className={""} id={"FAQ"}>
-      <section
-        className={
-          "max-w-[1360px] mx-auto mt-[90px] lg:mt-[160px] px-[28px] lg:px-[60px] bg-[#FFFFFF] rounded-[20px] pb-[30px]  lg:pb-[100px]"
-        }
-      >
-        <h1
-          className={
-            "bold-f text-[32px] lg:text-[54px] leading-[43px] lg:leading-[64px] text-black  py-[30px] lg:py-[80px]  flex justify-center px-[15px] text-center"
-          }
-        >
+    <div id="FAQ">
+      <section className="max-w-[1360px] mx-auto mt-[90px] lg:mt-[160px] px-[28px] lg:px-[60px] bg-[#FFFFFF] rounded-[20px] pb-[30px] lg:pb-[100px]">
+        <h1 className="bold-f text-[32px] lg:text-[54px] leading-[43px] lg:leading-[64px] text-black py-[30px] lg:py-[80px] flex justify-center px-[15px] text-center">
           FAQ
         </h1>
 
@@ -54,13 +47,13 @@ const Faq: React.FC<Props> = () => {
           {accordion.map((item, index) => (
             <div
               key={index}
-              className="border-t border-neutral-200 dark:border-neutral-600 mt-4"
+              className="border-b border-neutral-200 dark:border-neutral-600 mt-4"
             >
               <h3 className="mb-0">
                 <button
                   className={`${
                     activeElement === `item-${index}`
-                      ? "text-primary  dark:bg-neutral-800"
+                      ? "text-primary dark:bg-neutral-800"
                       : "bg-white dark:bg-neutral-800"
                   } group relative flex w-full items-center rounded-[15px] border-0 px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:text-white`}
                   type="button"
@@ -99,13 +92,16 @@ const Faq: React.FC<Props> = () => {
               </h3>
               <div
                 id={`collapse-${index}`}
-                className={`${
-                  activeElement === `item-${index}`
-                    ? "block px-5 py-4"
-                    : "hidden"
-                }`}
+                ref={(el: any) => (contentRefs.current[`item-${index}`] = el)}
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight:
+                    activeElement === `item-${index}`
+                      ? `${contentRefs.current[`item-${index}`]?.scrollHeight}px`
+                      : "0",
+                }}
               >
-                <p className="text-[#6A6A6A] text-[14px] leading-[16px] md:text-[23px] md:leading-[32px]">
+                <p className="text-[#6A6A6A] text-[14px] leading-[16px] md:text-[23px] md:leading-[32px] px-5 py-2">
                   {item.desc}
                 </p>
               </div>

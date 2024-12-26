@@ -4,6 +4,8 @@ import Image from "next/image";
 import Arrow from "@/public/assets/icons/Arrow.svg";
 import Close from "@/public/assets/icons/Close.svg";
 import { useModal } from "@/shared/hooks/ModalContext ";
+import { handleSubmit } from "@/shared/api/telegramApiCall";
+import toast from "react-hot-toast";
 
 interface Props {
   className?: string;
@@ -19,9 +21,23 @@ const CourseSignIn: React.FC<Props> = () => {
   const courseHandler = (value: any) => {
     setTelegramNick(value);
   };
-  const sendPaymentRequest = () => {
-    closeCourseSignIn();
-    openCourseConfirmation();
+  // const sendPaymentRequest = () => {
+  //   closeCourseSignIn();
+  //   openCourseConfirmation();
+  // };
+
+  const sendMessage = async () => {
+    if (telegramNick.length > 0) {
+      const result = await handleSubmit(telegramNick);
+      if (result.success) {
+        toast("✅ Наш менеджер свяжется с вами в скором времени!");
+        setTelegramNick(""); // Очищаем поле только при успешной отправке
+        closeCourseSignIn();
+        openCourseConfirmation();
+      } else {
+        toast.error(`❌ Ошибка: ${result.error}`); // Отображаем сообщение об ошибке
+      }
+    }
   };
 
   return (
@@ -79,7 +95,7 @@ const CourseSignIn: React.FC<Props> = () => {
                   h-[50px] sm:h-[60px] lg:h-[90px] pl-[15px] lg:pl-[52px]"
                 />
                 <button
-                  onClick={sendPaymentRequest}
+                  onClick={sendMessage}
                   disabled={!telegramNick}
                   className={`flex items-center justify-center 
     transition duration-300 shadow-md

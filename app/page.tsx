@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import CourseSignIn from "@/components/CourseSignIn";
 import { ModalProvider } from "@/shared/hooks/ModalContext ";
 import CourseConfirmation from "@/components/CourseConfirmation";
+import React from "react";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           <Header />
           <SectionHero />
         </section>
+        {/*<YourCheckoutComponent />*/}
         <YtVideo />
         <SolidityUniversity />
         <StudyInfo />

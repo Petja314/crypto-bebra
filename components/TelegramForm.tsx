@@ -15,8 +15,8 @@ const TelegramForm = () => {
     setIsLoading(true);
 
     try {
-      const botToken = "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"; // Замените на ваш токен бота
-      const chatId = "123456789"; // Замените на ваш chat_id (ID чата, куда отправляется сообщение)
+      const botToken = process.env.NEXT_PUBLIC_TELEGRAM_FORM_BOT_TOKEN; // Замените на ваш токен бота
+      const chatId = process.env.NEXT_PUBLIC_TELEGRAM_FORM_CHATID; // Замените на ваш chat_id (ID чата, куда отправляется сообщение)
 
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
       const payload = {
