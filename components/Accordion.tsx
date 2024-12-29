@@ -379,7 +379,7 @@ const Accordion = () => {
               <h2 className="medium text-[24px] leading-[28px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pl-[10px] md:pl-[40px]">
                 {module.module}
               </h2>
-              <h2 className="text-[16px] leading-[20px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[12px] md:pr-[33px]">
+              <h2 className="text-[16px] leading-[20px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[10px] md:pr-[10px]">
                 {module.title}
               </h2>
             </div>
@@ -444,7 +444,7 @@ const Accordion = () => {
                     ref={(el: any) =>
                       (contentRefs.current[`${moduleIndex}-${itemIndex}`] = el)
                     }
-                    className={`overflow-hidden transition-all duration-300 ease-in-out mb-[15px]`}
+                    className={`overflow-hidden transition-all duration-300 ease-in-out  `}
                     style={{
                       maxHeight:
                         activeElements[moduleIndex] === item.title

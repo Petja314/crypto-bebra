@@ -97,7 +97,7 @@ body {
 @layer components {
   .module-container {
     position: sticky;
-    top: 50px;
+    top: 0;
     /*z-index: 1; !* Обеспечиваем порядок наложения *!*/
   }
   .module-container:nth-child(1) {
