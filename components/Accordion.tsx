@@ -372,14 +372,14 @@ const Accordion = () => {
         {accordionData.map((module: any, moduleIndex: any) => (
           <div key={moduleIndex} className="module-container bg-white">
             <div
-              className={`module-header bg-[#FAECF2] rounded-[8px] md:rounded-[20px] flex justify-between mt-[32px] md:mt-[100px] sticky top-0 z-${
+              className={`module-header bg-[#FAECF2] rounded-[8px] md:rounded-[20px] flex justify-between items-center mt-[32px] md:mt-[100px] sticky gap-[20px] md:gap-[50px] top-0 z-${
                 accordionData.length - moduleIndex
               }`}
             >
-              <h2 className="medium text-[24px] leading-[28px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pl-[10px] md:pl-[40px]">
+              <h2 className="medium text-[20px] leading-[28px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pl-[10px] md:pl-[20px]  whitespace-nowrap">
                 {module.module}
               </h2>
-              <h2 className="text-[16px] leading-[20px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[10px] md:pr-[10px]">
+              <h2 className="text-[16px] leading-[20px] text-[#0E0E0E] md:text-[44px] md:leading-[57px] py-[11.5px] md:py-[24px] pr-[10px] md:pr-[20px] text-right ">
                 {module.title}
               </h2>
             </div>
