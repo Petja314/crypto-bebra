@@ -47,7 +47,7 @@ const WidgetContact: React.FC<Props> = () => {
               "medium text-[20px] leading-[22px] sm:text-[28px] md:text-[40px] md:leading-[45px] sm:pb-[20px] md:pb-[32px] text-center lg:text-left "
             }
           >
-            С радостью ответим на любые вопросы
+            С радостью ответим на любые вопросы 💻
           </p>
 
           {/* Виджет */}

@@ -45,8 +45,8 @@ const SectionHero: React.FC<Props> = () => {
           >
             {/*w-[264px] h-[96px]*/}
             {/* Мобильная версия */}
-            <span className="block md:hidden w-[133px] ">
-              Трех месячная программа по изучению Solidity
+            <span className="block md:hidden w-[130px] ">
+              Трехмесячная программа по изучению Solidity
             </span>
             {/* Десктопная версия */}
             <span className="hidden md:block">
@@ -58,10 +58,10 @@ const SectionHero: React.FC<Props> = () => {
           <div
             className={
               "flex  md:block md:hidden light text-[12px] sm:text-[16px] md:text-[18px] lg:text-[24px] leading-[13px] sm:leading-[20px] md:leading-[27px] lg:leading-[32px] " +
-              "  mt-[150px] xs:mt-[195px] text-left     w-[179px] sm:w-[250px] lg:w-[360px] "
+              "  mt-[190px] xs:mt-[195px] text-left     w-[179px] sm:w-[250px] lg:w-[360px] "
             }
           >
-            Вы освоите язык, сделаете шесть пэт-проектов и подготовитесь к
+            Вы освоите язык, сделаете шесть пет-проектов и подготовитесь к
             трудоустйству
           </div>
 
@@ -86,7 +86,7 @@ const SectionHero: React.FC<Props> = () => {
           <button
             onClick={openCourseSignIn}
             className={
-              "hidden md:block pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px] lg:text-[32px]"
+              "hidden md:block pink-btn py-[9.3px]  lg:py-[20px]  px-[38px] lg:px-[45px] font-bold  leading-[39px]  text-[14px] sm:text-[20px] md:text-[26px] lg:text-[32px] mt-auto"
             }
           >
             Записаться
@@ -131,7 +131,7 @@ const SectionHero: React.FC<Props> = () => {
             </span>
           </div>
 
-          <div className={"text-right"}>
+          <div className={"text-right mt-auto"}>
             <div className={"mt-[130px] md:mt-[0px] mb-[20px] sm:mb-[62px]"}>
               <span
                 className={

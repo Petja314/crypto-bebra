@@ -56,14 +56,22 @@ const Header: React.FC<Props> = () => {
       <nav className={"hidden md:block pt-[60px] mr-[56px] ml-[56px]"}>
         <ul
           className={
-            "flex justify-center lg:justify-start gap-[32px] text-white leading-[33px] text-[23px] lg:text-[28px]"
+            "flex justify-center lg:justify-start gap-[32px] text-white leading-[33px] text-[23px] lg:text-[26px] "
           }
         >
-          <span className={"medium"}>Solidity University</span>
+          <a
+            href="https://solidity.university/"
+            className={"medium header-menu lg:text-[26px]"}
+            target={"_blank"}
+          >
+            {" "}
+            Solidity University
+          </a>
+          {/*<span className={"medium"}>Solidity University</span>*/}
           {headerMenu.map((item, index) => (
             <li
               key={index}
-              className={"cursor-pointer"}
+              className={"cursor-pointer lg:text-[26px]"}
               onClick={() => sectionScrollHandler(item, false)}
             >
               {item}
@@ -85,9 +93,7 @@ const Header: React.FC<Props> = () => {
               <li key={i} onClick={() => sectionScrollHandler(item, true)}>
                 <a
                   href="#"
-                  className={
-                    "text-white text-[24px] leading-[28px] medium hover:text-pink-500"
-                  }
+                  className={"text-white text-[24px] leading-[26px] medium "}
                 >
                   {item}
                 </a>

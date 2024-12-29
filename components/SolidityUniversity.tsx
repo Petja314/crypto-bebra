@@ -35,7 +35,7 @@ const solidity = [
   },
   {
     title: "В ногу с AI",
-    desc: "Упор на AI технологии и применении их в блокчейн разработке для оптимизации",
+    desc: "Упор на AI технологии и применении их в блокчейн разработке",
     img: icon4,
     alt: "AI",
   },
@@ -87,7 +87,7 @@ const SolidityUniversity: React.FC<Props> = () => {
                 key={i}
                 className={
                   "shadow-[10px_10px_40px_0px_#80133E2E]   overflow-hidden rounded-[20px] w-full  bg-[#FFFFFF] flex flex-col    px-[30px] lg:px-[30px] pb-[40px]" +
-                  " xxl:h-full h-full overflow-hidden "
+                  " xxl:h-full h-full overflow-hidden hover:bg-[#fefafc] transition duration-500 ease-in-out"
                 }
               >
                 <div

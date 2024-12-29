@@ -27,7 +27,7 @@ const Footer: React.FC<Props> = () => {
       <section className={"max-w-[1280px] mx-auto "}>
         <div
           className={
-            "flex justify-evenly md:justify-between  gap-[15px] lg:gap-[30px] pt-[40px] pb-[40px] md:pt-[80px] md:pb-[90px] px-[20px] lg:px-[80px] "
+            "flex justify-evenly md:justify-between  gap-[15px] lg:gap-[30px] pt-[40px] pb-[40px] md:pt-[80px] md:pb-[90px] px-[20px] lg:px-[0px] "
           }
         >
           <div>

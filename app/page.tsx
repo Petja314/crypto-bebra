@@ -24,6 +24,7 @@ export default function Home() {
           <SectionHero />
         </section>
         {/*<YourCheckoutComponent />*/}
+
         <YtVideo />
         <SolidityUniversity />
         <StudyInfo />

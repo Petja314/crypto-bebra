@@ -27,9 +27,7 @@ const study = [
   {
     no: "4.",
     title: "Сбалансированная программа",
-    desc:
-      "Сбалансированная программа\n" +
-      "Прохождение материала в одинаковом темпе. ПН, СР, ПТ открывается доступ к новым урокам, разбитых на логичные и удобные для восприятия темы",
+    desc: "Прохождение материала в комфортном темпе. ВТ, ЧТ открывается доступ к новым урокам, разбитых на логичные для восприятия темы",
   },
 ];
 const StudyInfo: React.FC<Props> = () => {
@@ -58,7 +56,8 @@ const StudyInfo: React.FC<Props> = () => {
           <div
             key={i}
             className={
-              "group flex flex-col   pt-[30px] pb-[40px] px-[30px] md:pt-[60px] md:pb-[120px] md:px-[60px] border rounded-[30px] bg-[#333333] hover:bg-[#F9EBF1] transition-colors duration-300" +
+              "group flex flex-col   pt-[30px] pb-[40px] px-[30px] md:pt-[60px] md:pb-[120px] md:px-[60px] border-0 border-[#e5e7eb] rounded-[30px] bg-[#333333] hover:bg-[#F9EBF1] transition-colors" +
+              " duration-500" +
               " ease-in-out h-full overflow-hidden"
             }
           >
