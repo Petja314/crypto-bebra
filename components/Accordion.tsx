@@ -399,7 +399,7 @@ const Accordion = () => {
                         activeElements[moduleIndex] === item.title
                           ? "text-primary"
                           : ""
-                      } group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white`}
+                      } group relative flex w-full items-center  border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white`}
                       type="button"
                       onClick={() =>
                         handleClick(moduleIndex.toString(), item.title)
@@ -455,6 +455,7 @@ const Accordion = () => {
                     <p className="text-[#6A6A6A] text-[14px] leading-[16px] md:text-[23px] md:leading-[32px] px-5 py-2">
                       {item.description}
                     </p>
+                    <br />
                   </div>
                 </div>
               ))}
